@@ -4,27 +4,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import application.controller.Controller;
 import application.controller.VentanaPrincipalController;
 import application.logica.Pregunta;
 import application.logica.ReadXML;
 import application.logica.Test;
 import application.logica.TestPage;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class MainApp extends Application {
 
 	 private Stage primaryStage;
 	 private BorderPane rootLayout;
-
+	 
 	    @Override
 	    public void start(Stage primaryStage) {
 	        this.primaryStage = primaryStage;
-	        this.primaryStage.setTitle("AddressApp");
 
 	        initRootLayout();
 	    }
@@ -34,16 +38,20 @@ public class MainApp extends Application {
 	     */
 	    public void initRootLayout() {
 	        try {
+	        	primaryStage.setHeight(600);
+				primaryStage.setWidth(800);
 	            // Load root layout from fxml file.
 	            FXMLLoader loader = new FXMLLoader();
 	            loader.setLocation(MainApp.class.getResource("view/VentanaPrincipal.fxml"));
 	            rootLayout = (BorderPane) loader.load();
-	            
-	            VentanaPrincipalController controller = loader.getController();
+	            rootLayout.getStyleClass().add("borderPane");
+	            Controller controller = loader.getController();
 	            controller.setMainApp(this);
 
 	            // Show the scene containing the root layout.
 	            Scene scene = new Scene(rootLayout);
+	            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+	          
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
 	        } catch (IOException e) {
@@ -53,17 +61,35 @@ public class MainApp extends Application {
 
 	   
 	    public void abrirVista(String urlVista) {
-	        try {
-	            // Load view
-	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(MainApp.class.getResource(urlVista));
-	            BorderPane vista = (BorderPane) loader.load();
-
-	            // Set view into the center of root layout.
-	            rootLayout.setCenter(vista);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
+	    	FadeTransition fadeTransition = new FadeTransition(Duration.millis(250),primaryStage.getScene().getRoot());
+			fadeTransition.setFromValue(1.0);
+			fadeTransition.setToValue(0.0);
+			fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+			    	 try {
+				            // Load view
+				            FXMLLoader loader = new FXMLLoader();
+				            loader.setLocation(MainApp.class.getResource(urlVista));
+				            BorderPane vista = (BorderPane) loader.load();
+				            
+				            Controller controller = loader.getController();
+				            setMainApp(controller);			            				            
+				            // Set view into the center of root layout.
+				           Scene scene = new Scene(vista);
+				           primaryStage.setScene(scene);
+				           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				           vista.getStyleClass().add("borderPane");
+				        } catch (IOException e) {
+				            e.printStackTrace();
+				        }
+			    }
+			});		
+			fadeTransition.play();
+	    }
+	    
+	    private void setMainApp(Controller c){
+	    	c.setMainApp(this);
 	    }
 
 	    /**
@@ -74,34 +100,17 @@ public class MainApp extends Application {
 	        return primaryStage;
 	    }
 	    
-
-
 	    public static void main(String[] args) {
 	    	ReadXML xml  = new ReadXML();
-	     	Test test = new Test();
-	     	TestPage page1 = new TestPage();
-	     	TestPage page2 = new TestPage();
-	     	TestPage page3 = new TestPage();
-	     	
-	     	//Añadimos las páginas al test
-	     	test.addPagina(page1);
-	     	test.addPagina(page2);
-	     	test.addPagina(page3);
+	     	Test test = Test.getReference();
 	     	
 	     	//Generar la lista de preguntas y rellenarla con las preguntas del XML
 	     	ArrayList<Pregunta> preguntas = new ArrayList<Pregunta>();
 	     	xml.readXML(preguntas);
 	     	
-	     	//Asignamos las preguntas a las páginas
-	     	page1.setListaPreguntas(preguntas.subList(0, 9));
-	     	page1.setNumeroPreguntas(10);
-	     	
-//	    	page2.setListaPreguntas(preguntas.subList(10, 19));
-//	     	page2.setNumeroPreguntas(10);
-//	     	
-//	    	page3.setListaPreguntas(preguntas.subList(20, 29));
-//	     	page3.setNumeroPreguntas(10);
-    
+	     	//Asignamos las preguntas al test
+	     	test.setPreguntas(preguntas);
+
 	        launch(args);
 	    }
 	    

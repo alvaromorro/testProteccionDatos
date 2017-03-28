@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea layoutX="13.0" layoutY="33.0" prefHeight="368.0" prefWidth="460.0" text="Informació sobre como utilizar la aplicación" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Button layoutX="224.0" layoutY="445.0" mnemonicParsing="false" text="Volver" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

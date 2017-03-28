@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.StartTestController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea layoutY="10.0" text="Va a comenzar el test  Son X paginas con X preguntas&#10;&#10;" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleComenzar" text="Comenzar" />
+            <Button layoutX="136.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleVolver" text="Volver" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

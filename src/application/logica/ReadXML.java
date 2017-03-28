@@ -46,7 +46,7 @@ public class ReadXML {
 
 						Element eElement = (Element) nNode;
 						System.out.println(eElement.getElementsByTagName("numero").item(0).getTextContent());
-						pregunta.setNumeroPregunta(eElement.getElementsByTagName("numero").item(0).getTextContent());
+						pregunta.setNumeroPregunta(Integer.parseInt(eElement.getElementsByTagName("numero").item(0).getTextContent()));
 						pregunta.setTextoPregunta(eElement.getElementsByTagName("texto").item(0).getTextContent());
 						
 						preguntas.add(pregunta);

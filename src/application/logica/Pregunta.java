@@ -1,14 +1,14 @@
 package application.logica;
 
 public class Pregunta {
-	private String numeroPregunta;
+	private int numeroPregunta;
 	private String textoPregunta;
 	
 
-	public String getNumeroPregunta() {
+	public int getNumeroPregunta() {
 		return numeroPregunta;
 	}
-	public void setNumeroPregunta(String numeroPregunta) {
+	public void setNumeroPregunta(int numeroPregunta) {
 		this.numeroPregunta = numeroPregunta;
 	}
 	public String getTextoPregunta() {
