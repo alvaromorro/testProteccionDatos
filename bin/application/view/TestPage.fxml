@@ -8,32 +8,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minWidth="-Infinity" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.testPageController">
    <center>
-      <GridPane BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="446.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="94.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
+      <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tiene su eempresa in responsable del trarmiento" GridPane.columnIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+            <Pane prefHeight="200.0" prefWidth="300.0">
                <children>
-                  <RadioButton layoutX="-5.0" layoutY="9.0" mnemonicParsing="false" text="No" />
-                  <RadioButton layoutX="47.0" layoutY="9.0" mnemonicParsing="false" text="Si" />
+                  <Text fx:id="textoPreguntaTextField" layoutX="137.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <RadioButton fx:id="botonSi" layoutX="63.0" layoutY="83.0" mnemonicParsing="false" text="Si" />
+                  <Button fx:id="continuar" layoutX="90.0" layoutY="160.0" mnemonicParsing="false" text="Continuar" />
+                  <Text fx:id="numeroPreguntaTextField" layoutX="54.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta X de NumeroDePreguntas" />
+                  <RadioButton fx:id="botonNo" layoutX="63.0" layoutY="111.0" mnemonicParsing="false" text="No" />
                </children>
             </Pane>
          </children>
-      </GridPane>
+      </FlowPane>
    </center>
 </BorderPane>
