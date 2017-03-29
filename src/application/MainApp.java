@@ -109,7 +109,7 @@ public class MainApp extends Application {
 	     	xml.readXML(preguntas);
 	     	
 	     	//Asignamos las preguntas al test
-	     	test.setPreguntas(preguntas);
+	     	test.setListaPreguntas(preguntas);
 
 	        launch(args);
 	    }

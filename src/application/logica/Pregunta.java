@@ -3,6 +3,7 @@ package application.logica;
 public class Pregunta {
 	private int numeroPregunta;
 	private String textoPregunta;
+	private String respuesta = "";
 	
 
 	public int getNumeroPregunta() {
@@ -17,7 +18,13 @@ public class Pregunta {
 	public void setTextoPregunta(String textoPregunta) {
 		this.textoPregunta = textoPregunta;
 	}
-	
+	public void setRespuesta(String rspuesta) {
+		this.respuesta = respuesta;
+	}
+	public String getRespuesta(){
+		return this.respuesta;
+	}
+
 	
 	
 }

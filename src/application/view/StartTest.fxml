@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.StartTestController">
+<BorderPane prefHeight="363.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.StartTestController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea layoutY="10.0" text="Va a comenzar el test  Son X paginas con X preguntas&#10;&#10;" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <Button layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleComenzar" text="Comenzar" />
-            <Button layoutX="136.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleVolver" text="Volver" />
+            <Pane prefHeight="368.0" prefWidth="581.0">
+               <children>
+                  <Button layoutX="140.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleComenzar" text="Comenzar" />
+                  <TextArea text="Va a comenzar el test  Son X paginas con X preguntas&#10;&#10;" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button layoutX="331.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleVolver" prefHeight="31.0" prefWidth="119.0" text="Volver" />
+               </children>
+            </Pane>
          </children>
-      </AnchorPane>
+      </FlowPane>
    </center>
 </BorderPane>
