@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class StartTestController extends Controller {
+public class StartTestController implements Controller {
 
 	@FXML
 	private Button botonComenzar;

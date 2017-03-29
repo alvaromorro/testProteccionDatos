@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -8,17 +9,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane minWidth="-Infinity" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.testPageController">
+<BorderPane minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.testPageController">
    <center>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="300.0">
+            <Pane prefHeight="354.0" prefWidth="490.0">
                <children>
-                  <Text fx:id="textoPreguntaTextField" layoutX="137.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                  <RadioButton fx:id="botonSi" layoutX="63.0" layoutY="83.0" mnemonicParsing="false" text="Si" />
-                  <Button fx:id="continuar" layoutX="90.0" layoutY="160.0" mnemonicParsing="false" text="Continuar" />
-                  <Text fx:id="numeroPreguntaTextField" layoutX="54.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta X de NumeroDePreguntas" />
-                  <RadioButton fx:id="botonNo" layoutX="63.0" layoutY="111.0" mnemonicParsing="false" text="No" />
+                  <RadioButton fx:id="botonSi" layoutX="61.0" layoutY="263.0" mnemonicParsing="false" text="Si" />
+                  <Button fx:id="continuar" layoutX="185.0" layoutY="314.0" mnemonicParsing="false" text="Continuar" />
+                  <Text fx:id="numeroPreguntaTextField" layoutX="30.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta X de NumeroDePreguntas" textOrigin="CENTER" />
+                  <RadioButton fx:id="botonNo" layoutX="61.0" layoutY="235.0" mnemonicParsing="false" text="No" />
+                  <TextArea fx:id="textoPreguntaTextField" editable="false" layoutX="25.0" layoutY="42.0" wrapText="true" />
                </children>
             </Pane>
          </children>

@@ -6,14 +6,11 @@ import java.util.ResourceBundle;
 import application.MainApp;
 import javafx.fxml.Initializable;
 
-public abstract class Controller implements Initializable {
+public interface Controller extends Initializable {
 
-	public void setMainApp(MainApp main){}
+	public void setMainApp(MainApp main);
 	
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-
-	}
+	public void initialize(URL location, ResourceBundle resources);
 
 }

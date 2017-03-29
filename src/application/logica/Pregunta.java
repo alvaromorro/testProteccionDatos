@@ -18,7 +18,7 @@ public class Pregunta {
 	public void setTextoPregunta(String textoPregunta) {
 		this.textoPregunta = textoPregunta;
 	}
-	public void setRespuesta(String rspuesta) {
+	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
 	public String getRespuesta(){

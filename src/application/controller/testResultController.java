@@ -11,7 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class testResultController extends Controller implements Initializable {
+public class testResultController implements Controller {
 
 	private MainApp mainApp;
 	
@@ -27,8 +27,8 @@ public class testResultController extends Controller implements Initializable {
 		Test test = Test.getReference();
 		int resSi = test.countResultadoSi();
 		int resNo = test.getNumeroPreguntas() - resSi;
-		textoSi.setText(resSi+"");
-		textoNo.setText(resNo+"");
+		textoSi.setText(String.valueOf(resSi));
+		textoNo.setText(String.valueOf(resNo));
 		
 		aceptar.setOnAction(this::handleAceptar);
 	}

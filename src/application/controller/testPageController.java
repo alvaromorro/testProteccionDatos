@@ -16,10 +16,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
-public class testPageController extends Controller{
+public class testPageController implements Controller{
 
 	private MainApp mainApp;
 	private String textoNumeroPregunta;
@@ -30,9 +31,9 @@ public class testPageController extends Controller{
 	
 	
 	@FXML
-	private Text numeroPreguntaTextField;
+	private TextArea textoPreguntaTextField;
 	@FXML
-	private Text textoPreguntaTextField;
+	private Text numeroPreguntaTextField;
 	@FXML
 	private RadioButton botonSi;
 	@FXML
@@ -55,6 +56,7 @@ public class testPageController extends Controller{
 		
 		numeroPreguntaTextField.setText(textoNumeroPregunta);
 		textoPreguntaTextField.setText(preguntaActual.getTextoPregunta());
+		textoPreguntaTextField.setEditable(false);
 		
 		botonSi.setToggleGroup(group);
 		botonNo.setToggleGroup(group);
@@ -96,12 +98,18 @@ public class testPageController extends Controller{
 	
 	
 	private boolean getRespuesta(){
-	
+		String res = "";
 		if(!(group.getSelectedToggle() == null)){
 			RadioButton boton = (RadioButton) group.getSelectedToggle();
 			boton.setSelected(false);
-			
-			preguntaActual.setRespuesta(boton.getText());
+			if(boton.getText().equals("Si")){
+				System.out.println("Si");
+				res = "Si";
+			}else{
+				System.out.println("No");
+				res = "No";
+			}
+			preguntaActual.setRespuesta(res);
 			return true;
 			
 		}else{

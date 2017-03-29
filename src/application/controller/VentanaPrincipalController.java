@@ -12,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
-public class VentanaPrincipalController extends Controller {
+public class VentanaPrincipalController implements Controller {
 	
 	private MainApp mainApp;
 	

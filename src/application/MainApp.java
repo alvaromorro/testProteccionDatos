@@ -5,18 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.controller.Controller;
-import application.controller.VentanaPrincipalController;
+
 import application.logica.Pregunta;
 import application.logica.ReadXML;
 import application.logica.Test;
-import application.logica.TestPage;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
