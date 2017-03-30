@@ -1,5 +1,6 @@
 package application.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,15 +10,21 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 import application.MainApp;
 import application.logica.Pregunta;
 import application.logica.Test;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class testPageController extends Controller{
 
@@ -85,12 +92,30 @@ public class testPageController extends Controller{
 	public void actualizarPregunta(){
 
 		if(getRespuesta()){
-			numeroPregunta = numeroPregunta + 1;
-			preguntaActual = test.getPregunta(numeroPregunta - 1);
-			textoNumeroPregunta = "Pregunta " + numeroPregunta +" de "+ maximoPreguntas;
-			
-			numeroPreguntaTextField.setText(textoNumeroPregunta);
-			textoPreguntaTextField.setText(preguntaActual.getTextoPregunta());
+			try{
+			FadeTransition fadeOut = new FadeTransition(Duration.millis(500),continuar.getParent());
+			fadeOut.setAutoReverse(true);
+			fadeOut.setFromValue(1.0);
+			fadeOut.setToValue(0.0);
+			fadeOut.setOnFinished(new EventHandler<ActionEvent>() {
+			    @Override
+			    public void handle(ActionEvent event) {
+			    	numeroPregunta = numeroPregunta + 1;
+					preguntaActual = test.getPregunta(numeroPregunta - 1);
+					textoNumeroPregunta = "Pregunta " + numeroPregunta +" de "+ maximoPreguntas;
+					
+					numeroPreguntaTextField.setText(textoNumeroPregunta);
+					textoPreguntaTextField.setText(preguntaActual.getTextoPregunta());	
+			    	FadeTransition fadeIn = new FadeTransition(Duration.millis(500),continuar.getParent());
+					fadeIn.setAutoReverse(true);
+					fadeIn.setFromValue(0.0);
+					fadeIn.setToValue(1.0);
+					fadeIn.play();
+			    }
+			});
+			fadeOut.play();
+
+			}catch(Exception e){e.printStackTrace();}
 		}
 	}
 	
