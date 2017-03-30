@@ -1,8 +1,9 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import application.controller.Controller;
 
@@ -40,7 +41,7 @@ public class MainApp extends Application {
 				primaryStage.setWidth(800);
 	            // Load root layout from fxml file.
 	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(MainApp.class.getResource("view/VentanaPrincipal.fxml"));
+	            loader.setLocation(getURL("view/VentanaPrincipal.fxml"));
 	            rootLayout = (BorderPane) loader.load();
 	            rootLayout.getStyleClass().add("borderPane");
 	            Controller controller = loader.getController();
@@ -96,6 +97,10 @@ public class MainApp extends Application {
 	     */
 	    public Stage getPrimaryStage() {
 	        return primaryStage;
+	    }
+	    
+	    public URL getURL(String file){
+	    	return MainApp.class.getResource(file);
 	    }
 	    
 	    public static void main(String[] args) {

@@ -1,0 +1,78 @@
+package application.logica;
+
+
+
+import net.sf.dynamicreports.adhoc.AdhocManager;
+import net.sf.dynamicreports.adhoc.configuration.AdhocColumn;
+import net.sf.dynamicreports.adhoc.configuration.AdhocConfiguration;
+import net.sf.dynamicreports.adhoc.configuration.AdhocReport;
+import net.sf.dynamicreports.adhoc.report.DefaultAdhocReportCustomizer;
+import net.sf.dynamicreports.examples.Templates;
+import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
+import net.sf.dynamicreports.report.builder.ReportBuilder;
+import net.sf.dynamicreports.report.datasource.DRDataSource;
+import net.sf.dynamicreports.report.exception.DRException;
+import net.sf.jasperreports.engine.JRDataSource;
+
+public class ReportGenerator {
+
+	public ReportGenerator() {
+		build();
+	}
+
+	private void build() {
+		AdhocConfiguration configuration = new AdhocConfiguration();
+
+		AdhocReport report = new AdhocReport();
+
+		configuration.setReport(report);
+
+		AdhocColumn columnaI = new AdhocColumn();
+		columnaI.setName("Resultados");
+		report.addColumn(columnaI);
+		
+		AdhocColumn columnaQ = new AdhocColumn();
+		columnaQ.setName("quantity");
+		report.addColumn(columnaQ);
+
+		try {
+
+			JasperReportBuilder reportBuilder = AdhocManager.createReport(configuration.getReport(),
+					new ReportCustomizer());
+
+			reportBuilder.setDataSource(createDataSource());
+
+			reportBuilder.show();
+
+		} catch (DRException e) {
+
+			e.printStackTrace();
+
+		}
+
+	}
+
+	private JRDataSource createDataSource() {
+
+		DRDataSource dataSource = new DRDataSource("Resultados");
+		dataSource.add("Aquí aparecerán las valoraciones del test así como las medidas a adoptar \n para adaptearse al nuevo reglamento");
+		return dataSource;
+	}
+
+	private class ReportCustomizer extends DefaultAdhocReportCustomizer {
+
+		public void customize(ReportBuilder<?> report, AdhocReport adhocReport) throws DRException {
+
+			super.customize(report, adhocReport);
+			// default report values
+			report.setTemplate(Templates.reportTemplate);
+			report.title(Templates.createTitleComponent("Resultado"));
+			// a fixed page footer that user cannot change, this customization
+			// is not stored in the xml file
+			report.pageFooter(Templates.footerComponent);
+
+		}
+
+	}
+	
+}
