@@ -1,22 +1,24 @@
 package application;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 import application.controller.Controller;
-import application.controller.VentanaPrincipalController;
+
 import application.logica.Pregunta;
 import application.logica.ReadXML;
 import application.logica.Test;
-import application.logica.TestPage;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -30,8 +32,26 @@ public class MainApp extends Application {
 	    public void start(Stage primaryStage) {
 	        this.primaryStage = primaryStage;
 
+	        primaryStage.setOnCloseRequest(event -> {
+	        	//Cerrar la aplicaión
+	    		Alert alert = new Alert(AlertType.CONFIRMATION);
+	    		alert.setTitle("Dialogo de confirmación");
+	    		alert.setHeaderText("Va a cerrarla aplicación");
+	    	
+
+	    		Optional<ButtonType> result = alert.showAndWait();
+	    		if (result.get() == ButtonType.OK){
+	    		   System.exit(0);
+	    		} else {
+	    		    // ... user chose CANCEL or closed the dialog
+	    			alert.close();
+	    			event.consume();
+	    		}	
+		    });
+	        
 	        initRootLayout();
 	    }
+	    
 
 	    /**
 	     * Initializes the root layout.
@@ -42,7 +62,7 @@ public class MainApp extends Application {
 				primaryStage.setWidth(800);
 	            // Load root layout from fxml file.
 	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(MainApp.class.getResource("view/VentanaPrincipal.fxml"));
+	            loader.setLocation(getURL("view/VentanaPrincipal.fxml"));
 	            rootLayout = (BorderPane) loader.load();
 	            rootLayout.getStyleClass().add("borderPane");
 	            Controller controller = loader.getController();
@@ -98,6 +118,10 @@ public class MainApp extends Application {
 	     */
 	    public Stage getPrimaryStage() {
 	        return primaryStage;
+	    }
+	    
+	    public URL getURL(String file){
+	    	return MainApp.class.getResource(file);
 	    }
 	    
 	    public static void main(String[] args) {

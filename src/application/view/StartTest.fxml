@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -10,11 +12,11 @@
    <center>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="368.0" prefWidth="581.0">
+            <Pane>
                <children>
                   <Button layoutX="140.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleComenzar" text="Comenzar" />
-                  <TextArea text="Va a comenzar el test  Son X paginas con X preguntas&#10;&#10;" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
                   <Button layoutX="331.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleVolver" prefHeight="31.0" prefWidth="119.0" text="Volver" />
+                  <JFXTextArea fx:id="textArea" text="Va a comenzar el test  para comprobar que cambios debe relaizar su empresa para adaptarse al nuevo reglamento europeo de protección de datos.&#10;&#10;El test consta de X preguntas. Al finalizar el test, se generará un informe con las recomendaciones que debería llevar a cabo para adaptar sus procedimientos al nuevo reglamento.&#10;&#10;&#10;" />
                </children>
             </Pane>
          </children>

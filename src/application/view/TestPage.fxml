@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -8,17 +10,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane minWidth="-Infinity" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.testPageController">
+<BorderPane minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.testPageController">
    <center>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="200.0" prefWidth="300.0">
+            <Pane prefHeight="508.0" prefWidth="490.0">
                <children>
-                  <Text fx:id="textoPreguntaTextField" layoutX="137.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                  <RadioButton fx:id="botonSi" layoutX="63.0" layoutY="83.0" mnemonicParsing="false" text="Si" />
-                  <Button fx:id="continuar" layoutX="90.0" layoutY="160.0" mnemonicParsing="false" text="Continuar" />
-                  <Text fx:id="numeroPreguntaTextField" layoutX="54.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta X de NumeroDePreguntas" />
-                  <RadioButton fx:id="botonNo" layoutX="63.0" layoutY="111.0" mnemonicParsing="false" text="No" />
+                  <Button fx:id="continuar" layoutX="185.0" layoutY="433.0" mnemonicParsing="false" text="Continuar" />
+                  <JFXTextArea fx:id="textArea" layoutX="-36.0" layoutY="61.0" prefHeight="247.0" prefWidth="562.0" />
+                  <JFXRadioButton fx:id="botonSi" layoutX="109.0" layoutY="334.0" style="-jfx-selected-color: #2de8ef;" text="Si" />
+                  <JFXRadioButton fx:id="botonNo" layoutX="109.0" layoutY="374.0" text="No" />
+                  <JFXTextField fx:id="numeroPreguntaTextField" alignment="CENTER" layoutX="143.0" layoutY="14.0" text="Pregunta" />
                </children>
             </Pane>
          </children>

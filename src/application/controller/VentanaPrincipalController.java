@@ -4,7 +4,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXRippler;
+
 import application.MainApp;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -12,7 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 
-public class VentanaPrincipalController extends Controller {
+public class VentanaPrincipalController implements Controller {
 	
 	private MainApp mainApp;
 	
@@ -22,7 +25,7 @@ public class VentanaPrincipalController extends Controller {
 	private Button botonInfoTest;
 	
 	@FXML
-	public void handleNuevoTest(){
+	public void handleNuevoTest(ActionEvent event){
 		//Iniciar un nuevo Test
 		System.out.println("Nevo test");
 		mainApp.abrirVista("view/StartTest.fxml");
@@ -46,8 +49,8 @@ public class VentanaPrincipalController extends Controller {
 	}
 	
 	@FXML
-	public void handleInfoTest(){
-		//Mostrar info 
+	public void handleInfoTest(ActionEvent event){
+		mainApp.abrirVista("view/Informacion.fxml"); 
 	}
 	
 	public void setMainApp(MainApp mainApp) {
@@ -57,7 +60,8 @@ public class VentanaPrincipalController extends Controller {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		botonNuevoTest.setOnAction(this::handleNuevoTest);
+		botonInfoTest.setOnAction(this::handleInfoTest);
 	}
 
 }

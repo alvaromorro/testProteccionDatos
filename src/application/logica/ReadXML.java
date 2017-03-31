@@ -27,8 +27,6 @@ public class ReadXML {
 			//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 			doc.getDocumentElement().normalize();
 	
-			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-	
 			NodeList nList = doc.getElementsByTagName("pregunta");
 	
 			System.out.println(nList.getLength());
@@ -48,9 +46,10 @@ public class ReadXML {
 						System.out.println(eElement.getElementsByTagName("numero").item(0).getTextContent());
 						pregunta.setNumeroPregunta(Integer.parseInt(eElement.getElementsByTagName("numero").item(0).getTextContent()));
 						pregunta.setTextoPregunta(eElement.getElementsByTagName("texto").item(0).getTextContent());
-						
+						pregunta.setRecomendacion(eElement.getElementsByTagName("recomendacion").item(0).getTextContent());
+						pregunta.setGrupo(eElement.getElementsByTagName("grupo").item(0).getTextContent());
+						pregunta.setRespuetaOk(Integer.parseInt(eElement.getElementsByTagName("respuesta").item(0).getTextContent()));
 						preguntas.add(pregunta);
-			
 				}
 			}
 			

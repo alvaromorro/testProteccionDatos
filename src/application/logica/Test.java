@@ -28,18 +28,12 @@ public class Test {
 			return reference;
 		}
 	}
-	
-	public int countResultadoSi(){
-		int result = 0;
-		for(Pregunta p : preguntasTest){
-			if(p.getRespuesta().equals("Si")){
-				result++;
-			}
-		}
-		return result;
-	}
 
 	public void setListaPreguntas(ArrayList<Pregunta> preguntas) {
 		this.preguntasTest = preguntas;
+	}
+	
+	public ArrayList<Pregunta> getListaPreguntas(){
+		return preguntasTest;
 	}
 }
