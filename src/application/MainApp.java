@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
-
 import application.controller.Controller;
-
 import application.logica.Pregunta;
 import application.logica.ReadXML;
 import application.logica.Test;
@@ -22,6 +20,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import application.logica.ResizeSceneListener;
 
 public class MainApp extends Application {
 
@@ -67,19 +66,29 @@ public class MainApp extends Application {
 	            rootLayout.getStyleClass().add("borderPane");
 	            Controller controller = loader.getController();
 	            controller.setMainApp(this);
-
+	                        
 	            // Show the scene containing the root layout.
 	            Scene scene = new Scene(rootLayout);
 	            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-	          
+
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
+	         
+	            final double initWidth  = scene.getWidth();
+				final double initHeight = scene.getHeight();
+				final double ratio = initWidth / initHeight;
+				
+
+				//para poder redimensionar la scene
+				ResizeSceneListener sizeListener = new ResizeSceneListener(scene, ratio, initHeight, initWidth, rootLayout);
+				scene.widthProperty().addListener(sizeListener);
+				scene.heightProperty().addListener(sizeListener);
+				
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	   
 	    public void abrirVista(String urlVista) {
 	    	FadeTransition fadeTransition = new FadeTransition(Duration.millis(250),primaryStage.getScene().getRoot());
 			fadeTransition.setFromValue(1.0);
@@ -88,21 +97,21 @@ public class MainApp extends Application {
 			    @Override
 			    public void handle(ActionEvent event) {
 			    	 try {
-				            // Load view
-				            FXMLLoader loader = new FXMLLoader();
-				            loader.setLocation(MainApp.class.getResource(urlVista));
-				            BorderPane vista = (BorderPane) loader.load();
-				            
-				            Controller controller = loader.getController();
-				            setMainApp(controller);			            				            
-				            // Set view into the center of root layout.
-				           Scene scene = new Scene(vista);
-				           primaryStage.setScene(scene);
-				           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				           vista.getStyleClass().add("borderPane");
-				        } catch (IOException e) {
-				            e.printStackTrace();
-				        }
+			           // Load view
+			           FXMLLoader loader = new FXMLLoader();
+			           loader.setLocation(MainApp.class.getResource(urlVista));
+			           BorderPane vista = (BorderPane) loader.load();
+			            
+			           Controller controller = loader.getController();
+			           setMainApp(controller);			            				            
+			           // Set view into the center of root layout.
+			           Scene scene = new Scene(vista);
+			           primaryStage.setScene(scene);
+			           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			           vista.getStyleClass().add("borderPane");
+			        }catch (IOException e) {
+			            e.printStackTrace();
+			        }
 			    }
 			});		
 			fadeTransition.play();
