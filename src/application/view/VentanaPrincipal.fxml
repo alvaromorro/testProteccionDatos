@@ -6,22 +6,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VentanaPrincipalController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VentanaPrincipalController">
    <center>
-      <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="571.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="botonNuevoTest" mnemonicParsing="false" onAction="#handleNuevoTest" text="Comenzar Test">
+            <Button fx:id="salir" layoutX="376.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
+            <Button fx:id="botonNuevoTest" layoutX="271.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleNuevoTest" text="Comenzar Test">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Información">
+            <Button fx:id="botonInfoTest" layoutX="416.0" layoutY="242.0" mnemonicParsing="false" text="Información">
                <FlowPane.margin>
                   <Insets right="10.0" />
                </FlowPane.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
          </children>
-      </FlowPane>
+      </AnchorPane>
    </center>
 </BorderPane>
