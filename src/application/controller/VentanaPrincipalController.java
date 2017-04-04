@@ -1,19 +1,13 @@
 package application.controller;
 
 import java.awt.Desktop;
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import com.jfoenix.controls.JFXRippler;
-
 import application.MainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -26,12 +20,15 @@ public class VentanaPrincipalController implements Controller {
 	
 	@FXML
 	private Button botonNuevoTest;
-	
 	@FXML
 	private Button salir;
-	
 	@FXML
-	private Hyperlink link;
+	private Hyperlink linkREPD;
+	@FXML
+	private Hyperlink linkAEPD;
+	@FXML
+	private Hyperlink linkGuia;
+
 	
 	@FXML
 	public void handleNuevoTest(ActionEvent event){
@@ -73,7 +70,7 @@ public class VentanaPrincipalController implements Controller {
 	}
 	
 	public void handleLinkAEPD(ActionEvent event){
-		openBrowser("https://goo.gl/gQ2FI3");
+		openBrowser("https://goo.gl/8pLrJ5");
 	}
 	public void handleLinkGuia(ActionEvent event){
 		openBrowser("https://goo.gl/44H8Rg");
@@ -89,11 +86,10 @@ public class VentanaPrincipalController implements Controller {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		botonNuevoTest.setOnAction(this::handleNuevoTest);
 		salir.setOnAction(this::handleSalir);
-//		botonInfoTest.setOnAction(this::handleInfoTest);
-		link.setOnAction(this::handleLinkREPD);
+		linkREPD.setOnAction(this::handleLinkREPD);
+		linkAEPD.setOnAction(this::handleLinkAEPD);
+		linkGuia.setOnAction(this::handleLinkGuia);
 	}
-
 }

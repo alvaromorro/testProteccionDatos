@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
@@ -7,20 +10,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
+<?import com.jfoenix.controls.JFXTextField?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VentanaPrincipalController">
    <center>
       <AnchorPane prefHeight="546.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="salir" layoutX="169.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
-            <Button fx:id="botonNuevoTest" layoutX="134.0" layoutY="134.0" mnemonicParsing="false" onAction="#handleNuevoTest" text="Comenzar Test">
-            </Button>
-            <JFXTextArea editable="false" layoutX="407.0" layoutY="55.0" prefHeight="475.0" prefWidth="379.0" text="Información sobre la licaciónasdasdsdsadsadasdsdsadasdassadadadaddasdadsadasadsdadaadasdasddadadasdasdsadaddada">
+            <Button fx:id="salir" layoutX="143.0" layoutY="247.0" mnemonicParsing="false" onAction="#handleSalir" prefHeight="31.0" prefWidth="77.0" text="Salir" />
+            <Button fx:id="botonNuevoTest" layoutX="117.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleNuevoTest" style="-fx-background-insets: 0 0 -1 0,0,1;" text="Comenzar Test">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding></Button>
+            <JFXTextArea editable="false" layoutX="407.0" layoutY="55.0" prefHeight="265" prefWidth="379.0" text="Información sobre la licaciónasdasdsdsadsadasdsdsadasdassadadadaddasdadsadasadsdadaadasdasddadadasdasdsadaddada">
                <padding>
                   <Insets right="30.0" />
                </padding>
             </JFXTextArea>
-            <Hyperlink fx:id="link" layoutX="407.0" layoutY="293.0" text="Reglamento europeo de protección de datos" textFill="#000000">
+            <JFXTextField alignment="CENTER" layoutX="512.0" layoutY="356.0" text="Links de interés" />
+            <Hyperlink fx:id="linkREPD" layoutX="450.0" layoutY="487.0" text="Reglamento europeo de protección de datos" textFill="#000000">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Hyperlink>
+             <Hyperlink fx:id="linkGuia" layoutX="451.0" layoutY="416.0" text="Guia protección de datos UE" textFill="#000000">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="linkAEPD" layoutX="450.0" layoutY="452.0" text="Agéncia española de protección de datos" textFill="#000000">
                <font>
                   <Font name="System Italic" size="15.0" />
                </font>
