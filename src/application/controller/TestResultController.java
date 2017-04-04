@@ -2,24 +2,20 @@ package application.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import application.MainApp;
 import application.logica.ReportGenerator;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.text.Text;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-public class testResultController implements Controller {
+public class TestResultController implements Controller {
 
 	private MainApp mainApp;
 	
@@ -37,7 +33,17 @@ public class testResultController implements Controller {
 	}
 	
 	public void handleAceptar(ActionEvent event){
-		mainApp.abrirVista("view/VentanaPrincipal.fxml");
+		Alert a= new Alert(AlertType.WARNING);
+		a.getDialogPane().getButtonTypes().addAll(ButtonType.CANCEL);
+		a.setHeaderText("Atención");
+		a.setContentText("Se perdeá el informe al volver a la pantalla de inicio \n¿Desea continuar?");
+		Optional<ButtonType> result = a.showAndWait();
+		if (result.get() == ButtonType.OK){
+			mainApp.abrirVista("view/VentanaPrincipal.fxml");
+		} else {
+		    // ... user chose CANCEL or closed the dialog
+			a.close();
+		}		
 	}
 	
 	public void handleGenerarInforme(ActionEvent event){
