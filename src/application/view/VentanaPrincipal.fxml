@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -8,19 +10,21 @@
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VentanaPrincipalController">
    <center>
-      <AnchorPane prefHeight="571.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="546.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="salir" layoutX="376.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
-            <Button fx:id="botonNuevoTest" layoutX="271.0" layoutY="242.0" mnemonicParsing="false" onAction="#handleNuevoTest" text="Comenzar Test">
-               <FlowPane.margin>
-                  <Insets right="10.0" />
-               </FlowPane.margin>
+            <Button fx:id="salir" layoutX="169.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleSalir" text="Salir" />
+            <Button fx:id="botonNuevoTest" layoutX="134.0" layoutY="134.0" mnemonicParsing="false" onAction="#handleNuevoTest" text="Comenzar Test">
             </Button>
-            <Button fx:id="botonInfoTest" layoutX="416.0" layoutY="242.0" mnemonicParsing="false" text="Información">
-               <FlowPane.margin>
-                  <Insets right="10.0" />
-               </FlowPane.margin>
-            </Button>
+            <JFXTextArea editable="false" layoutX="407.0" layoutY="55.0" prefHeight="475.0" prefWidth="379.0" text="Información sobre la licaciónasdasdsdsadsadasdsdsadasdassadadadaddasdadsadasadsdadaadasdasddadadasdasdsadaddada">
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+            </JFXTextArea>
+            <Hyperlink fx:id="link" layoutX="407.0" layoutY="293.0" text="Reglamento europeo de protección de datos" textFill="#000000">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Hyperlink>
          </children>
       </AnchorPane>
    </center>
