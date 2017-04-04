@@ -16,12 +16,18 @@
 	-fx-scale-y: 1.1;
 }
 
+/* 
 .borderPane{
 	-fx-background-color: 
 		 rgba(46,119,192,0.08),
 		 linear-gradient(rgba(182,221,237,1) 0%, rgba(74,166,191,1) 74%, rgba(17,121,153,1) 96%, rgba(17,121,153,1) 100%);
 }
-
+*/
+.borderPane{
+	-fx-background-color: 
+		 rgba(46,119,192,0.08),
+		 linear-gradient(rgba(182,221,237,1) 0%, rgba(74,166,191,1) 85%, rgba(17,121,153,1) 96%);
+}
 
 /*rgba(182,221,237,1) 0%, rgba(74,166,191,1) 74%, rgba(17,121,153,1) 96%, rgba(17,121,153,1) 100%
  * 
